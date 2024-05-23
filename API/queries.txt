@@ -1,0 +1,21 @@
+1. Query para buscar id da organizaçao no HTTPie:
+ {
+   "query":"{ pipe(id: 303843596) { id uuid name cards_count organization {id}} }"
+ }
+ 2. Para pegar informaçoes detalhadas do processo:
+ {
+   "query":"{ pipe(id: 303843596) { id uuid name cards_count organization {id} members {role_name user {id email}} phases {id name} start_form_fields{ id label} labels{ id name color} webhooks {name id} }}"
+ }
+ 3. Para pegar informaçoes do pipe (processo) da organizaçao:
+  {
+   "query":"{organization(id:301236187) {id name pipes { id name }}}"
+ }
+ 4. Encontrar membros da organizaçao:
+  {
+   "query":"{organization(id:301236187) {id name members { role_name user { id email} }}}"
+ }
+ 5.Encontrar tabela da organizaçao:
+ {
+   "query":"{organization(id:301236187) {id tables{ edges{ node {id name internal_id}}}}}"
+ }
+
